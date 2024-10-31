@@ -6,8 +6,9 @@
  */
 
 use Webcreate\Util\Cli;
+use PHPUnit\Framework\TestCase;
 
-class CliTest extends PHPUnit_Framework_TestCase
+class CliTest extends TestCase
 {
     /**
      * @dataProvider prepareProvider
@@ -30,7 +31,7 @@ class CliTest extends PHPUnit_Framework_TestCase
                 array('abc', array('-n' => false, 'arg2', 'arg3'), 'abc "arg2" "arg3"'),
                 array('echo', array('-x' => 'hello world'), 'echo -x "hello world"'),
                 array('git', array('log' => true, '--format=' => '%H%cr'), 'git log --format=^%"H"^%"cr"'),
-           );
+            );
 
         } else {
             return array(
