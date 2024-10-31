@@ -8,7 +8,6 @@
 namespace Webcreate\Util;
 
 use Symfony\Component\Process\Process;
-use Symfony\Component\Process\ProcessUtils;
 
 /**
  * Command line interface utility
@@ -67,7 +66,7 @@ class Cli
                         $seperator = '';
                     }
                 }
-                $commandline .= $seperator . ProcessUtils::escapeArgument($value);
+                $commandline .= $seperator . escapeshellarg($value);
             }
         }
 
@@ -95,7 +94,7 @@ class Cli
      */
     public function execute($commandline, $callback = null, $cwd = null)
     {
-        $this->process = new Process($commandline, $cwd, null, null, $this->timeout);
+        $this->process = new Process([$commandline], $cwd, null, null, $this->timeout);
 
         return $this->process->run($callback);
     }
