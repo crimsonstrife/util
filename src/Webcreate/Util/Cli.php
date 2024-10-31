@@ -84,7 +84,7 @@ class Cli
      * via the getOutput() and getErrorOutput() methods.
      *
      * @param string               $commandline The command line to run
-     * @param Closure|string|array $callback    A PHP callback to run whenever there is some
+     * @param \Closure|string|array $callback    A PHP callback to run whenever there is some
      *                                          output available on STDOUT or STDERR
      * @param string $cwd The working directory
      *
